@@ -1,0 +1,1113 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2013 Taxi Data</title>
+    <link rel="stylesheet" href="../foundation/css/foundation.css" />
+    <script src="../foundation/js/vendor/modernizr.js"></script>
+  </head>
+  
+  <style>
+
+/* SVG styling */
+
+
+
+svg {
+  width: 320px;
+  height: 300px;
+}
+
+#taxi1, #taxi2, #taxi3, #taxi4, #taxi5, #taxi6, #taxi7, #taxi8, #taxi9, #taxi10, #taxi11, #taxi12 {
+  margin-bottom:20px;
+}
+
+
+path {
+  stroke: #777;
+  stroke-width: 0.1px;
+}
+
+.labels {
+  fill: #aaa;
+  font-weight: 200;
+  letter-spacing: -1px;
+}
+.labels.segment {
+  font-size: 10px;
+
+}
+
+</style>
+
+  <body>
+    
+    <div class="row">
+      <div class="large-12 columns">
+        
+        
+        <h2>Taxi Data 2013 by Month</h2>
+        
+        <p>Each chart shows taxi data aggregated by day of the week and hour of the day for a given month. For example, on Thursdays in January at 8pm there were 163,297
+        total rides.
+        </p>
+       
+        <div id="taxi1" class="large-4 columns">
+          <div class="row">
+            <div class="large-4 columns"><h5><strong>January</strong></h5></div>
+          </div>
+        </div>
+
+        <div id="taxi2" class="large-4 columns">
+          <div class="row">
+            <div class="large-4 columns"><h5><strong>February</strong></h5></div>
+          </div>
+        </div>
+
+        <div id="taxi3" class="large-4 columns">
+          <div class="row">
+            <div class="large-4 columns"><h5><strong>March</strong></h5></div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+        <div id="taxi4" class="large-4 columns">
+          <div class="row">
+            <div class="large-4 columns"><h5><strong>April</strong></h5></div>
+          </div>
+        </div>
+
+        <div id="taxi5" class="large-4 columns">
+          <div class="row">
+            <div class="large-4 columns"><h5><strong>May</strong></h5></div>
+          </div>
+        </div>
+
+        <div id="taxi6" class="large-4 columns">
+          <div class="row">
+            <div class="large-4 columns"><h5><strong>June</strong></h5></div>
+          </div>
+        </div>
+
+
+
+
+        <div id="taxi7" class="large-4 columns">
+          <div class="row">
+            <div class="large-4 columns"><h5><strong>July</strong></h5></div>
+          </div>
+        </div>
+
+        <div id="taxi8" class="large-4 columns">
+          <div class="row">
+            <div class="large-4 columns"><h5><strong>August</strong></h5></div>
+          </div>
+        </div>
+
+        <div id="taxi9" class="large-4 columns">
+          <div class="row">
+            <div class="large-4 columns"><h5><strong>September</strong></h5></div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+        <div id="taxi10" class="large-4 columns">
+          <div class="row">
+            <div class="large-4 columns"><h5><strong>October</strong></h5></div>
+          </div>
+        </div>
+
+        <div id="taxi11" class="large-4 columns">
+          <div class="row">
+            <div class="large-4 columns"><h5><strong>November</strong></h5></div>
+          </div>
+        </div>
+
+        <div id="taxi12" class="large-4 columns">
+          <div class="row">
+            <div class="large-4 columns"><h5><strong>December</strong></h5></div>
+          </div>
+        </div>
+       
+
+
+        
+        
+      </div>
+    </div>
+    
+ </body>
+    
+<script src="../d3/d3.min.js"></script>
+<script src="circularHeatChart.js"></script>
+<script>
+
+var taxi1chart = circularHeatChart()
+    .segmentHeight(17)
+    .innerRadius(17)
+    .range(["white", "steelblue"])
+    .numSegments(24)
+    .radialLabels(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+    .segmentLabels(["Midnight", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "Midday", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"])
+    .margin({top: 10, right: 0, bottom: 10, left: 10});
+
+var taxi2chart = circularHeatChart()
+    .segmentHeight(17)
+    .innerRadius(17)
+    .range(["white", "steelblue"])
+    .numSegments(24)
+    .radialLabels(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+    .segmentLabels(["Midnight", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "Midday", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"])
+    .margin({top: 10, right: 0, bottom: 10, left: 10});
+
+var taxi3chart = circularHeatChart()
+    .segmentHeight(17)
+    .innerRadius(17)
+    .range(["white", "steelblue"])
+    .numSegments(24)
+    .radialLabels(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+    .segmentLabels(["Midnight", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "Midday", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"])
+    .margin({top: 10, right: 0, bottom: 10, left: 10});
+
+var taxi4chart = circularHeatChart()
+    .segmentHeight(17)
+    .innerRadius(17)
+    .range(["white", "steelblue"])
+    .numSegments(24)
+    .radialLabels(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+    .segmentLabels(["Midnight", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "Midday", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"])
+    .margin({top: 10, right: 0, bottom: 10, left: 10});
+
+var taxi5chart = circularHeatChart()
+    .segmentHeight(17)
+    .innerRadius(17)
+    .range(["white", "steelblue"])
+    .numSegments(24)
+    .radialLabels(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+    .segmentLabels(["Midnight", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "Midday", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"])
+    .margin({top: 10, right: 0, bottom: 10, left: 10});
+
+  var taxi6chart = circularHeatChart()
+    .segmentHeight(17)
+    .innerRadius(17)
+    .range(["white", "steelblue"])
+    .numSegments(24)
+    .radialLabels(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+    .segmentLabels(["Midnight", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "Midday", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"])
+    .margin({top: 10, right: 0, bottom: 10, left: 10});
+
+  var taxi7chart = circularHeatChart()
+    .segmentHeight(17)
+    .innerRadius(17)
+    .range(["white", "steelblue"])
+    .numSegments(24)
+    .radialLabels(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+    .segmentLabels(["Midnight", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "Midday", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"])
+    .margin({top: 10, right: 0, bottom: 10, left: 10});
+
+  var taxi8chart = circularHeatChart()
+    .segmentHeight(17)
+    .innerRadius(17)
+    .range(["white", "steelblue"])
+    .numSegments(24)
+    .radialLabels(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+    .segmentLabels(["Midnight", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "Midday", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"])
+    .margin({top: 10, right: 0, bottom: 10, left: 10});
+
+  var taxi9chart = circularHeatChart()
+    .segmentHeight(17)
+    .innerRadius(17)
+    .range(["white", "steelblue"])
+    .numSegments(24)
+    .radialLabels(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+    .segmentLabels(["Midnight", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "Midday", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"])
+    .margin({top: 10, right: 0, bottom: 10, left: 10});
+
+  var taxi10chart = circularHeatChart()
+    .segmentHeight(17)
+    .innerRadius(17)
+    .range(["white", "steelblue"])
+    .numSegments(24)
+    .radialLabels(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+    .segmentLabels(["Midnight", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "Midday", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"])
+    .margin({top: 10, right: 0, bottom: 10, left: 10});
+
+    var taxi11chart = circularHeatChart()
+    .segmentHeight(17)
+    .innerRadius(17)
+    .range(["white", "steelblue"])
+    .numSegments(24)
+    .radialLabels(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+    .segmentLabels(["Midnight", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "Midday", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"])
+    .margin({top: 10, right: 0, bottom: 10, left: 10});
+
+    var taxi12chart = circularHeatChart()
+    .segmentHeight(17)
+    .innerRadius(17)
+    .range(["white", "steelblue"])
+    .numSegments(24)
+    .radialLabels(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+    .segmentLabels(["Midnight", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "Midday", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"])
+    .margin({top: 10, right: 0, bottom: 10, left: 10});
+
+
+var alljson = [{'count12': 50532, 'hour': 0, 'count11': 39139, 'count10': 40968, 'count4': 49185, 'count9': 57912, 'count8': 33223, 'count1': 39917, 'count3': 40328, 'count2': 54853, 'count5': 51083, 'day': 0, 'count7': 54985, 'count6': 47130},
+{'count12': 31867, 'hour': 1, 'count11': 22104, 'count10': 24006, 'count4': 29129, 'count9': 38088, 'count8': 20060, 'count1': 26279, 'count3': 24402, 'count2': 28544, 'count5': 35090, 'day': 0, 'count7': 34311, 'count6': 27729},
+{'count12': 20969, 'hour': 2, 'count11': 14182, 'count10': 15882, 'count4': 18530, 'count9': 26598, 'count8': 13412, 'count1': 17393, 'count3': 15691, 'count2': 19093, 'count5': 23066, 'day': 0, 'count7': 21587, 'count6': 17532},
+{'count12': 15293, 'hour': 3, 'count11': 10110, 'count10': 11494, 'count4': 12439, 'count9': 19276, 'count8': 9137, 'count1': 12393, 'count3': 11277, 'count2': 13270, 'count5': 16501, 'day': 0, 'count7': 14318, 'count6': 11482},
+{'count12': 15924, 'hour': 4, 'count11': 11729, 'count10': 12578, 'count4': 13910, 'count9': 18099, 'count8': 9638, 'count1': 11941, 'count3': 12041, 'count2': 12415, 'count5': 14214, 'day': 0, 'count7': 15244, 'count6': 12143},
+{'count12': 23013, 'hour': 5, 'count11': 19315, 'count10': 19422, 'count4': 23129, 'count9': 23600, 'count8': 14630, 'count1': 17074, 'count3': 18923, 'count2': 17965, 'count5': 17523, 'day': 0, 'count7': 23102, 'count6': 19770},
+{'count12': 53599, 'hour': 6, 'count11': 48108, 'count10': 44895, 'count4': 61575, 'count9': 53581, 'count8': 35527, 'count1': 42173, 'count3': 48656, 'count2': 44632, 'count5': 40652, 'day': 0, 'count7': 58076, 'count6': 49179},
+{'count12': 90602, 'hour': 7, 'count11': 83636, 'count10': 79028, 'count4': 109561, 'count9': 91892, 'count8': 60820, 'count1': 75448, 'count3': 86355, 'count2': 78269, 'count5': 72185, 'day': 0, 'count7': 97534, 'count6': 85385},
+{'count12': 110876, 'hour': 8, 'count11': 97494, 'count10': 93145, 'count4': 131067, 'count9': 104891, 'count8': 76136, 'count1': 96381, 'count3': 105218, 'count2': 97475, 'count5': 84659, 'day': 0, 'count7': 119439, 'count6': 101667},
+{'count12': 111315, 'hour': 9, 'count11': 95578, 'count10': 91501, 'count4': 125935, 'count9': 101753, 'count8': 73867, 'count1': 93798, 'count3': 103176, 'count2': 96254, 'count5': 85732, 'day': 0, 'count7': 119628, 'count6': 99062},
+{'count12': 104040, 'hour': 10, 'count11': 85290, 'count10': 81248, 'count4': 108078, 'count9': 94552, 'count8': 62620, 'count1': 80711, 'count3': 89359, 'count2': 87061, 'count5': 78531, 'day': 0, 'count7': 104430, 'count6': 85900},
+{'count12': 105919, 'hour': 11, 'count11': 83349, 'count10': 81310, 'count4': 105954, 'count9': 96724, 'count8': 59442, 'count1': 78868, 'count3': 85210, 'count2': 84806, 'count5': 81364, 'day': 0, 'count7': 102332, 'count6': 88292},
+{'count12': 110422, 'hour': 12, 'count11': 86295, 'count10': 86019, 'count4': 110269, 'count9': 101649, 'count8': 61500, 'count1': 85434, 'count3': 88827, 'count2': 88760, 'count5': 86218, 'day': 0, 'count7': 108085, 'count6': 89882},
+{'count12': 108226, 'hour': 13, 'count11': 83446, 'count10': 83268, 'count4': 109674, 'count9': 101199, 'count8': 61097, 'count1': 84603, 'count3': 87113, 'count2': 88396, 'count5': 85740, 'day': 0, 'count7': 105478, 'count6': 88053},
+{'count12': 115334, 'hour': 14, 'count11': 90469, 'count10': 87594, 'count4': 117070, 'count9': 108472, 'count8': 64099, 'count1': 92746, 'count3': 96303, 'count2': 94557, 'count5': 90969, 'day': 0, 'count7': 109400, 'count6': 92554},
+{'count12': 110728, 'hour': 15, 'count11': 88496, 'count10': 89120, 'count4': 116063, 'count9': 107049, 'count8': 63101, 'count1': 93599, 'count3': 94480, 'count2': 94948, 'count5': 90226, 'day': 0, 'count7': 104650, 'count6': 91831},
+{'count12': 90520, 'hour': 16, 'count11': 74586, 'count10': 76917, 'count4': 103558, 'count9': 90968, 'count8': 56256, 'count1': 81524, 'count3': 84973, 'count2': 84911, 'count5': 78719, 'day': 0, 'count7': 93665, 'count6': 75548},
+{'count12': 111676, 'hour': 17, 'count11': 93947, 'count10': 93107, 'count4': 126556, 'count9': 112602, 'count8': 69079, 'count1': 95878, 'count3': 104671, 'count2': 102184, 'count5': 94730, 'day': 0, 'count7': 113953, 'count6': 94541},
+{'count12': 136469, 'hour': 18, 'count11': 116069, 'count10': 113305, 'count4': 152149, 'count9': 134660, 'count8': 82387, 'count1': 116372, 'count3': 126591, 'count2': 121594, 'count5': 112875, 'day': 0, 'count7': 139364, 'count6': 113850},
+{'count12': 137875, 'hour': 19, 'count11': 119191, 'count10': 116269, 'count4': 148470, 'count9': 138684, 'count8': 84960, 'count1': 111145, 'count3': 123106, 'count2': 118376, 'count5': 112798, 'day': 0, 'count7': 142276, 'count6': 116992},
+{'count12': 131191, 'hour': 20, 'count11': 110782, 'count10': 106676, 'count4': 141679, 'count9': 132192, 'count8': 77562, 'count1': 97296, 'count3': 108527, 'count2': 104708, 'count5': 107567, 'day': 0, 'count7': 124385, 'count6': 109182},
+{'count12': 126950, 'hour': 21, 'count11': 104821, 'count10': 98552, 'count4': 132119, 'count9': 120763, 'count8': 74316, 'count1': 90540, 'count3': 99835, 'count2': 97882, 'count5': 104178, 'day': 0, 'count7': 125815, 'count6': 105406},
+{'count12': 117881, 'hour': 22, 'count11': 91349, 'count10': 86498, 'count4': 115434, 'count9': 107951, 'count8': 66491, 'count1': 85619, 'count3': 91113, 'count2': 84367, 'count5': 94890, 'day': 0, 'count7': 112498, 'count6': 93190},
+{'count12': 93015, 'hour': 23, 'count11': 67466, 'count10': 64406, 'count4': 85796, 'count9': 81289, 'count8': 50640, 'count1': 59284, 'count3': 68889, 'count2': 59779, 'count5': 71786, 'day': 0, 'count7': 84879, 'count6': 73165},
+{'count12': 66008, 'hour': 0, 'count11': 41951, 'count10': 53441, 'count4': 58052, 'count9': 44133, 'count8': 34735, 'count1': 66140, 'count3': 44092, 'count2': 38815, 'count5': 48762, 'day': 1, 'count7': 58414, 'count6': 49383},
+{'count12': 42847, 'hour': 1, 'count11': 24522, 'count10': 30770, 'count4': 32573, 'count9': 26722, 'count8': 20836, 'count1': 54030, 'count3': 25500, 'count2': 22591, 'count5': 29189, 'day': 1, 'count7': 34959, 'count6': 29056},
+{'count12': 27849, 'hour': 2, 'count11': 15166, 'count10': 18623, 'count4': 19854, 'count9': 16105, 'count8': 13405, 'count1': 43222, 'count3': 15592, 'count2': 13832, 'count5': 17667, 'day': 1, 'count7': 21114, 'count6': 17756},
+{'count12': 18433, 'hour': 3, 'count11': 10355, 'count10': 12509, 'count4': 12832, 'count9': 10250, 'count8': 9017, 'count1': 34640, 'count3': 9714, 'count2': 9340, 'count5': 11409, 'day': 1, 'count7': 13893, 'count6': 11389},
+{'count12': 16404, 'hour': 4, 'count11': 10836, 'count10': 12695, 'count4': 12499, 'count9': 10738, 'count8': 8429, 'count1': 27251, 'count3': 10069, 'count2': 9549, 'count5': 11048, 'day': 1, 'count7': 13443, 'count6': 10574},
+{'count12': 20811, 'hour': 5, 'count11': 18201, 'count10': 22389, 'count4': 21450, 'count9': 18134, 'count8': 13438, 'count1': 27342, 'count3': 17044, 'count2': 17139, 'count5': 18198, 'day': 1, 'count7': 21129, 'count6': 17941},
+{'count12': 50002, 'hour': 6, 'count11': 50985, 'count10': 58222, 'count4': 61537, 'count9': 49057, 'count8': 38813, 'count1': 56743, 'count3': 47865, 'count2': 49658, 'count5': 49232, 'day': 1, 'count7': 58022, 'count6': 47676},
+{'count12': 90320, 'hour': 7, 'count11': 91921, 'count10': 109515, 'count4': 118142, 'count9': 89761, 'count8': 69283, 'count1': 101241, 'count3': 90062, 'count2': 92562, 'count5': 92667, 'day': 1, 'count7': 102153, 'count6': 88275},
+{'count12': 108893, 'hour': 8, 'count11': 105825, 'count10': 125739, 'count4': 140348, 'count9': 103437, 'count8': 92427, 'count1': 123792, 'count3': 110362, 'count2': 113570, 'count5': 108630, 'day': 1, 'count7': 127218, 'count6': 107557},
+{'count12': 109025, 'hour': 9, 'count11': 100742, 'count10': 119823, 'count4': 133835, 'count9': 97925, 'count8': 91361, 'count1': 116465, 'count3': 108551, 'count2': 109127, 'count5': 103882, 'day': 1, 'count7': 125569, 'count6': 102776},
+{'count12': 104298, 'hour': 10, 'count11': 91042, 'count10': 107872, 'count4': 117250, 'count9': 88028, 'count8': 80220, 'count1': 103613, 'count3': 96009, 'count2': 94805, 'count5': 92306, 'day': 1, 'count7': 110144, 'count6': 91286},
+{'count12': 107382, 'hour': 11, 'count11': 89802, 'count10': 106726, 'count4': 114041, 'count9': 85996, 'count8': 77986, 'count1': 103749, 'count3': 96064, 'count2': 89954, 'count5': 94775, 'day': 1, 'count7': 108434, 'count6': 90430},
+{'count12': 112034, 'hour': 12, 'count11': 92665, 'count10': 110301, 'count4': 118421, 'count9': 89057, 'count8': 80554, 'count1': 111513, 'count3': 96409, 'count2': 96260, 'count5': 99526, 'day': 1, 'count7': 114727, 'count6': 94869},
+{'count12': 112492, 'hour': 13, 'count11': 91106, 'count10': 109284, 'count4': 115504, 'count9': 87407, 'count8': 76896, 'count1': 111647, 'count3': 92851, 'count2': 97217, 'count5': 97812, 'day': 1, 'count7': 112611, 'count6': 93511},
+{'count12': 118471, 'hour': 14, 'count11': 96141, 'count10': 117030, 'count4': 125034, 'count9': 91397, 'count8': 80336, 'count1': 119848, 'count3': 98328, 'count2': 102629, 'count5': 102447, 'day': 1, 'count7': 116203, 'count6': 99194},
+{'count12': 114397, 'hour': 15, 'count11': 88506, 'count10': 111079, 'count4': 121403, 'count9': 87437, 'count8': 76727, 'count1': 118097, 'count3': 95513, 'count2': 97777, 'count5': 96828, 'day': 1, 'count7': 108394, 'count6': 90679},
+{'count12': 93944, 'hour': 16, 'count11': 69380, 'count10': 91886, 'count4': 100183, 'count9': 69009, 'count8': 66498, 'count1': 101019, 'count3': 78159, 'count2': 82473, 'count5': 74422, 'day': 1, 'count7': 90126, 'count6': 71435},
+{'count12': 116212, 'hour': 17, 'count11': 90946, 'count10': 117196, 'count4': 126866, 'count9': 87644, 'count8': 82321, 'count1': 124229, 'count3': 99851, 'count2': 102568, 'count5': 94020, 'day': 1, 'count7': 112901, 'count6': 89395},
+{'count12': 140138, 'hour': 18, 'count11': 116119, 'count10': 146602, 'count4': 160381, 'count9': 113234, 'count8': 105039, 'count1': 153410, 'count3': 125224, 'count2': 128866, 'count5': 121891, 'day': 1, 'count7': 144589, 'count6': 118132},
+{'count12': 147953, 'hour': 19, 'count11': 123438, 'count10': 155919, 'count4': 162619, 'count9': 121423, 'count8': 106748, 'count1': 150543, 'count3': 131618, 'count2': 131722, 'count5': 127070, 'day': 1, 'count7': 152906, 'count6': 124184},
+{'count12': 145571, 'hour': 20, 'count11': 120000, 'count10': 151353, 'count4': 158198, 'count9': 119063, 'count8': 102203, 'count1': 138063, 'count3': 124047, 'count2': 126404, 'count5': 120297, 'day': 1, 'count7': 143901, 'count6': 118372},
+{'count12': 146053, 'hour': 21, 'count11': 119479, 'count10': 147596, 'count4': 152032, 'count9': 114868, 'count8': 100591, 'count1': 133570, 'count3': 120834, 'count2': 120313, 'count5': 119363, 'day': 1, 'count7': 144067, 'count6': 120788},
+{'count12': 138084, 'hour': 22, 'count11': 110727, 'count10': 133288, 'count4': 139324, 'count9': 105446, 'count8': 95489, 'count1': 119078, 'count3': 109704, 'count2': 110419, 'count5': 109033, 'day': 1, 'count7': 133509, 'count6': 112647},
+{'count12': 113526, 'hour': 23, 'count11': 85242, 'count10': 103780, 'count4': 110763, 'count9': 82687, 'count8': 74453, 'count1': 85447, 'count3': 82704, 'count2': 82005, 'count5': 85991, 'day': 1, 'count7': 108138, 'count6': 91647},
+{'count12': 63318, 'hour': 0, 'count11': 55721, 'count10': 65404, 'count4': 56436, 'count9': 55737, 'count8': 50398, 'count1': 54455, 'count3': 54359, 'count2': 53337, 'count5': 71934, 'day': 2, 'count7': 74222, 'count6': 66641},
+{'count12': 39238, 'hour': 1, 'count11': 32722, 'count10': 38409, 'count4': 32752, 'count9': 32794, 'count8': 30850, 'count1': 32348, 'count3': 31606, 'count2': 30405, 'count5': 43230, 'day': 2, 'count7': 45833, 'count6': 37779},
+{'count12': 24230, 'hour': 2, 'count11': 19903, 'count10': 24575, 'count4': 20041, 'count9': 21055, 'count8': 19487, 'count1': 19950, 'count3': 19910, 'count2': 18548, 'count5': 27336, 'day': 2, 'count7': 28349, 'count6': 23088},
+{'count12': 15881, 'hour': 3, 'count11': 13176, 'count10': 16153, 'count4': 13299, 'count9': 13879, 'count8': 13254, 'count1': 13784, 'count3': 13366, 'count2': 12385, 'count5': 18459, 'day': 2, 'count7': 18424, 'count6': 15118},
+{'count12': 13432, 'hour': 4, 'count11': 12646, 'count10': 14983, 'count4': 12139, 'count9': 12241, 'count8': 11870, 'count1': 13577, 'count3': 11938, 'count2': 11369, 'count5': 15901, 'day': 2, 'count7': 16519, 'count6': 13296},
+{'count12': 16110, 'hour': 5, 'count11': 18434, 'count10': 22111, 'count4': 17749, 'count9': 17892, 'count8': 14856, 'count1': 21367, 'count3': 17618, 'count2': 18029, 'count5': 23294, 'day': 2, 'count7': 22243, 'count6': 18335},
+{'count12': 39991, 'hour': 6, 'count11': 49982, 'count10': 59625, 'count4': 51393, 'count9': 49024, 'count8': 39313, 'count1': 61329, 'count3': 48552, 'count2': 52157, 'count5': 64935, 'day': 2, 'count7': 58306, 'count6': 49022},
+{'count12': 75274, 'hour': 7, 'count11': 92048, 'count10': 115314, 'count4': 96834, 'count9': 91791, 'count8': 70722, 'count1': 114865, 'count3': 91402, 'count2': 99520, 'count5': 121180, 'day': 2, 'count7': 105352, 'count6': 90280},
+{'count12': 87867, 'hour': 8, 'count11': 107672, 'count10': 133868, 'count4': 115230, 'count9': 106551, 'count8': 92823, 'count1': 141113, 'count3': 114524, 'count2': 117945, 'count5': 140008, 'day': 2, 'count7': 128947, 'count6': 108621},
+{'count12': 85503, 'hour': 9, 'count11': 103517, 'count10': 127414, 'count4': 109723, 'count9': 99754, 'count8': 91524, 'count1': 133529, 'count3': 110365, 'count2': 111975, 'count5': 132600, 'day': 2, 'count7': 127212, 'count6': 104681},
+{'count12': 80225, 'hour': 10, 'count11': 93005, 'count10': 114655, 'count4': 95250, 'count9': 91056, 'count8': 80257, 'count1': 115298, 'count3': 96099, 'count2': 98230, 'count5': 119261, 'day': 2, 'count7': 112845, 'count6': 93443},
+{'count12': 81635, 'hour': 11, 'count11': 91936, 'count10': 113932, 'count4': 94471, 'count9': 90487, 'count8': 80006, 'count1': 112149, 'count3': 94837, 'count2': 95996, 'count5': 119633, 'day': 2, 'count7': 111271, 'count6': 93225},
+{'count12': 84718, 'hour': 12, 'count11': 96312, 'count10': 118541, 'count4': 96433, 'count9': 94243, 'count8': 88103, 'count1': 118188, 'count3': 98431, 'count2': 100083, 'count5': 125306, 'day': 2, 'count7': 117987, 'count6': 96590},
+{'count12': 82718, 'hour': 13, 'count11': 94391, 'count10': 115005, 'count4': 94650, 'count9': 92441, 'count8': 84369, 'count1': 114784, 'count3': 95654, 'count2': 96009, 'count5': 119037, 'day': 2, 'count7': 118159, 'count6': 93616},
+{'count12': 84703, 'hour': 14, 'count11': 98592, 'count10': 120619, 'count4': 100039, 'count9': 96666, 'count8': 82088, 'count1': 122722, 'count3': 100314, 'count2': 103491, 'count5': 122258, 'day': 2, 'count7': 118803, 'count6': 96356},
+{'count12': 77561, 'hour': 15, 'count11': 90397, 'count10': 113839, 'count4': 96253, 'count9': 90210, 'count8': 77970, 'count1': 118817, 'count3': 96749, 'count2': 99778, 'count5': 115877, 'day': 2, 'count7': 106097, 'count6': 88491},
+{'count12': 61385, 'hour': 16, 'count11': 70514, 'count10': 90870, 'count4': 77597, 'count9': 69346, 'count8': 63958, 'count1': 99435, 'count3': 80565, 'count2': 83852, 'count5': 93119, 'day': 2, 'count7': 86113, 'count6': 69497},
+{'count12': 78147, 'hour': 17, 'count11': 92879, 'count10': 118392, 'count4': 99106, 'count9': 88065, 'count8': 78704, 'count1': 124098, 'count3': 100953, 'count2': 104217, 'count5': 117799, 'day': 2, 'count7': 109588, 'count6': 87873},
+{'count12': 95564, 'hour': 18, 'count11': 119121, 'count10': 149363, 'count4': 126799, 'count9': 114503, 'count8': 101092, 'count1': 156434, 'count3': 129225, 'count2': 132873, 'count5': 150302, 'day': 2, 'count7': 143009, 'count6': 115465},
+{'count12': 102786, 'hour': 19, 'count11': 123668, 'count10': 162463, 'count4': 137017, 'count9': 125012, 'count8': 110417, 'count1': 158313, 'count3': 135371, 'count2': 137697, 'count5': 163295, 'day': 2, 'count7': 154074, 'count6': 126594},
+{'count12': 102501, 'hour': 20, 'count11': 118324, 'count10': 158458, 'count4': 129742, 'count9': 122470, 'count8': 105892, 'count1': 145523, 'count3': 130868, 'count2': 132982, 'count5': 158862, 'day': 2, 'count7': 135130, 'count6': 122481},
+{'count12': 105538, 'hour': 21, 'count11': 116789, 'count10': 155984, 'count4': 126757, 'count9': 120644, 'count8': 105525, 'count1': 138956, 'count3': 127231, 'count2': 128776, 'count5': 158104, 'day': 2, 'count7': 145218, 'count6': 126035},
+{'count12': 102253, 'hour': 22, 'count11': 111201, 'count10': 144972, 'count4': 123208, 'count9': 113193, 'count8': 100795, 'count1': 127924, 'count3': 118003, 'count2': 119137, 'count5': 151024, 'day': 2, 'count7': 138366, 'count6': 120703},
+{'count12': 90736, 'hour': 23, 'count11': 92892, 'count10': 119536, 'count4': 96548, 'count9': 92387, 'count8': 84227, 'count1': 94477, 'count3': 95844, 'count2': 93442, 'count5': 124390, 'day': 2, 'count7': 120306, 'count6': 104541},
+{'count12': 64828, 'hour': 0, 'count11': 65035, 'count10': 77530, 'count4': 63394, 'count9': 62820, 'count8': 74641, 'count1': 63545, 'count3': 64310, 'count2': 60197, 'count5': 86563, 'day': 3, 'count7': 72257, 'count6': 74380},
+{'count12': 38799, 'hour': 1, 'count11': 41228, 'count10': 46390, 'count4': 38078, 'count9': 37676, 'count8': 45141, 'count1': 38291, 'count3': 37595, 'count2': 35504, 'count5': 53342, 'day': 3, 'count7': 47923, 'count6': 43604},
+{'count12': 24067, 'hour': 2, 'count11': 28445, 'count10': 29634, 'count4': 24167, 'count9': 24477, 'count8': 29699, 'count1': 24617, 'count3': 24048, 'count2': 22702, 'count5': 33869, 'day': 3, 'count7': 32898, 'count6': 27244},
+{'count12': 15164, 'hour': 3, 'count11': 19938, 'count10': 18694, 'count4': 15345, 'count9': 16077, 'count8': 19040, 'count1': 16068, 'count3': 15676, 'count2': 14492, 'count5': 21563, 'day': 3, 'count7': 21753, 'count6': 17563},
+{'count12': 13497, 'hour': 4, 'count11': 16701, 'count10': 16965, 'count4': 13777, 'count9': 13876, 'count8': 16201, 'count1': 14848, 'count3': 13860, 'count2': 13202, 'count5': 18555, 'day': 3, 'count7': 17193, 'count6': 15208},
+{'count12': 17300, 'hour': 5, 'count11': 19103, 'count10': 23714, 'count4': 18979, 'count9': 18265, 'count8': 20156, 'count1': 21898, 'count3': 18274, 'count2': 18700, 'count5': 24555, 'day': 3, 'count7': 18095, 'count6': 19839},
+{'count12': 42874, 'hour': 6, 'count11': 44900, 'count10': 60842, 'count4': 51743, 'count9': 47704, 'count8': 51227, 'count1': 60543, 'count3': 48956, 'count2': 51371, 'count5': 65447, 'day': 3, 'count7': 42148, 'count6': 49959},
+{'count12': 79326, 'hour': 7, 'count11': 80096, 'count10': 117323, 'count4': 98326, 'count9': 88652, 'count8': 85227, 'count1': 113931, 'count3': 93198, 'count2': 99379, 'count5': 122262, 'day': 3, 'count7': 71502, 'count6': 92038},
+{'count12': 93908, 'hour': 8, 'count11': 92879, 'count10': 136453, 'count4': 116516, 'count9': 103846, 'count8': 113909, 'count1': 141174, 'count3': 116879, 'count2': 118828, 'count5': 142219, 'day': 3, 'count7': 87784, 'count6': 109872},
+{'count12': 92208, 'hour': 9, 'count11': 89759, 'count10': 130284, 'count4': 110763, 'count9': 100561, 'count8': 115934, 'count1': 135015, 'count3': 113370, 'count2': 113128, 'count5': 136688, 'day': 3, 'count7': 88943, 'count6': 106939},
+{'count12': 86796, 'hour': 10, 'count11': 85525, 'count10': 116996, 'count4': 97956, 'count9': 91415, 'count8': 93005, 'count1': 115813, 'count3': 101326, 'count2': 98864, 'count5': 124514, 'day': 3, 'count7': 82638, 'count6': 97198},
+{'count12': 87603, 'hour': 11, 'count11': 86401, 'count10': 115044, 'count4': 96114, 'count9': 89270, 'count8': 88850, 'count1': 112337, 'count3': 98747, 'count2': 96634, 'count5': 121951, 'day': 3, 'count7': 83125, 'count6': 94835},
+{'count12': 90850, 'hour': 12, 'count11': 88226, 'count10': 121738, 'count4': 100994, 'count9': 94424, 'count8': 92698, 'count1': 118201, 'count3': 104085, 'count2': 102005, 'count5': 125282, 'day': 3, 'count7': 87867, 'count6': 95557},
+{'count12': 87855, 'hour': 13, 'count11': 87023, 'count10': 119558, 'count4': 98861, 'count9': 93866, 'count8': 95625, 'count1': 116170, 'count3': 101749, 'count2': 99589, 'count5': 120460, 'day': 3, 'count7': 86078, 'count6': 93526},
+{'count12': 90391, 'hour': 14, 'count11': 90484, 'count10': 123414, 'count4': 104100, 'count9': 93977, 'count8': 96295, 'count1': 124871, 'count3': 103997, 'count2': 107390, 'count5': 125317, 'day': 3, 'count7': 88216, 'count6': 96783},
+{'count12': 82998, 'hour': 15, 'count11': 83614, 'count10': 114910, 'count4': 98258, 'count9': 86819, 'count8': 85916, 'count1': 122594, 'count3': 97001, 'count2': 100258, 'count5': 113541, 'day': 3, 'count7': 82636, 'count6': 88298},
+{'count12': 64752, 'hour': 16, 'count11': 67419, 'count10': 90773, 'count4': 77919, 'count9': 69242, 'count8': 68161, 'count1': 103400, 'count3': 76700, 'count2': 81180, 'count5': 87196, 'day': 3, 'count7': 68982, 'count6': 69080},
+{'count12': 84422, 'hour': 17, 'count11': 84625, 'count10': 120329, 'count4': 99344, 'count9': 92127, 'count8': 85836, 'count1': 128938, 'count3': 97289, 'count2': 101041, 'count5': 113649, 'day': 3, 'count7': 83752, 'count6': 89092},
+{'count12': 107496, 'hour': 18, 'count11': 107195, 'count10': 147957, 'count4': 128652, 'count9': 119840, 'count8': 113451, 'count1': 164745, 'count3': 124119, 'count2': 131476, 'count5': 149581, 'day': 3, 'count7': 107120, 'count6': 119560},
+{'count12': 116177, 'hour': 19, 'count11': 115690, 'count10': 163421, 'count4': 136052, 'count9': 129413, 'count8': 126472, 'count1': 170549, 'count3': 135677, 'count2': 141498, 'count5': 163665, 'day': 3, 'count7': 115118, 'count6': 133774},
+{'count12': 113973, 'hour': 20, 'count11': 116401, 'count10': 163289, 'count4': 135986, 'count9': 127348, 'count8': 122366, 'count1': 163297, 'count3': 137829, 'count2': 139249, 'count5': 160963, 'day': 3, 'count7': 104665, 'count6': 131138},
+{'count12': 113717, 'hour': 21, 'count11': 117459, 'count10': 158657, 'count4': 133120, 'count9': 123588, 'count8': 122521, 'count1': 160381, 'count3': 135507, 'count2': 136693, 'count5': 164077, 'day': 3, 'count7': 112160, 'count6': 132729},
+{'count12': 110321, 'hour': 22, 'count11': 114277, 'count10': 155373, 'count4': 128977, 'count9': 122377, 'count8': 121064, 'count1': 150716, 'count3': 130443, 'count2': 130020, 'count5': 159930, 'day': 3, 'count7': 113159, 'count6': 125143},
+{'count12': 104358, 'hour': 23, 'count11': 101662, 'count10': 144670, 'count4': 115004, 'count9': 112224, 'count8': 112528, 'count1': 123973, 'count3': 117569, 'count2': 112150, 'count5': 145237, 'day': 3, 'count7': 107241, 'count6': 116248},
+{'count12': 87543, 'hour': 0, 'count11': 102962, 'count10': 86891, 'count4': 87766, 'count9': 87061, 'count8': 90893, 'count1': 67015, 'count3': 112987, 'count2': 85480, 'count5': 114075, 'day': 4, 'count7': 90013, 'count6': 96899},
+{'count12': 59914, 'hour': 1, 'count11': 73268, 'count10': 54885, 'count4': 56860, 'count9': 55998, 'count8': 63361, 'count1': 42918, 'count3': 72616, 'count2': 54482, 'count5': 77342, 'day': 4, 'count7': 60952, 'count6': 63740},
+{'count12': 39353, 'hour': 2, 'count11': 52393, 'count10': 36795, 'count4': 37393, 'count9': 37297, 'count8': 42586, 'count1': 28374, 'count3': 48549, 'count2': 36324, 'count5': 51828, 'day': 4, 'count7': 39906, 'count6': 42486},
+{'count12': 25654, 'hour': 3, 'count11': 35971, 'count10': 24338, 'count4': 25387, 'count9': 25681, 'count8': 28499, 'count1': 19105, 'count3': 33157, 'count2': 24342, 'count5': 33836, 'day': 4, 'count7': 26004, 'count6': 27181},
+{'count12': 19784, 'hour': 4, 'count11': 27155, 'count10': 19278, 'count4': 19611, 'count9': 19856, 'count8': 21719, 'count1': 15853, 'count3': 25728, 'count2': 19485, 'count5': 25874, 'day': 4, 'count7': 19597, 'count6': 20670},
+{'count12': 19051, 'hour': 5, 'count11': 25522, 'count10': 20644, 'count4': 20393, 'count9': 20147, 'count8': 21307, 'count1': 18559, 'count3': 25509, 'count2': 20786, 'count5': 27128, 'day': 4, 'count7': 19135, 'count6': 21774},
+{'count12': 43388, 'hour': 6, 'count11': 55127, 'count10': 48364, 'count4': 50563, 'count9': 47028, 'count8': 45274, 'count1': 47288, 'count3': 58741, 'count2': 49893, 'count5': 62303, 'day': 4, 'count7': 41509, 'count6': 50604},
+{'count12': 78755, 'hour': 7, 'count11': 99926, 'count10': 90926, 'count4': 95240, 'count9': 86231, 'count8': 73054, 'count1': 90109, 'count3': 104619, 'count2': 93993, 'count5': 112405, 'day': 4, 'count7': 69075, 'count6': 86513},
+{'count12': 95549, 'hour': 8, 'count11': 117303, 'count10': 107389, 'count4': 115117, 'count9': 102013, 'count8': 95941, 'count1': 114284, 'count3': 132415, 'count2': 115513, 'count5': 135810, 'day': 4, 'count7': 87867, 'count6': 105177},
+{'count12': 95749, 'hour': 9, 'count11': 115621, 'count10': 103215, 'count4': 110272, 'count9': 98638, 'count8': 95845, 'count1': 108847, 'count3': 131751, 'count2': 110815, 'count5': 130951, 'day': 4, 'count7': 88625, 'count6': 103808},
+{'count12': 92501, 'hour': 10, 'count11': 111211, 'count10': 94459, 'count4': 100437, 'count9': 91280, 'count8': 77301, 'count1': 94631, 'count3': 121916, 'count2': 99414, 'count5': 120880, 'day': 4, 'count7': 80717, 'count6': 93775},
+{'count12': 92220, 'hour': 11, 'count11': 109758, 'count10': 95295, 'count4': 99076, 'count9': 91228, 'count8': 76635, 'count1': 93529, 'count3': 121519, 'count2': 99057, 'count5': 120999, 'day': 4, 'count7': 82369, 'count6': 93175},
+{'count12': 90759, 'hour': 12, 'count11': 112778, 'count10': 97260, 'count4': 100356, 'count9': 93166, 'count8': 79953, 'count1': 98666, 'count3': 124964, 'count2': 102486, 'count5': 123070, 'day': 4, 'count7': 86112, 'count6': 94889},
+{'count12': 90458, 'hour': 13, 'count11': 114676, 'count10': 92411, 'count4': 94625, 'count9': 88779, 'count8': 79880, 'count1': 98544, 'count3': 122658, 'count2': 100481, 'count5': 116309, 'day': 4, 'count7': 85466, 'count6': 90194},
+{'count12': 94092, 'hour': 14, 'count11': 120502, 'count10': 99038, 'count4': 104074, 'count9': 95869, 'count8': 82555, 'count1': 104783, 'count3': 131955, 'count2': 105845, 'count5': 123939, 'day': 4, 'count7': 89980, 'count6': 92317},
+{'count12': 85207, 'hour': 15, 'count11': 110859, 'count10': 88992, 'count4': 94209, 'count9': 89056, 'count8': 74434, 'count1': 99005, 'count3': 122585, 'count2': 94912, 'count5': 110072, 'day': 4, 'count7': 82397, 'count6': 82827},
+{'count12': 66932, 'hour': 16, 'count11': 90138, 'count10': 70222, 'count4': 76334, 'count9': 70471, 'count8': 60308, 'count1': 82584, 'count3': 100964, 'count2': 76689, 'count5': 86226, 'day': 4, 'count7': 68193, 'count6': 66450},
+{'count12': 87072, 'hour': 17, 'count11': 112665, 'count10': 92958, 'count4': 99126, 'count9': 92757, 'count8': 77572, 'count1': 98304, 'count3': 129152, 'count2': 92024, 'count5': 111069, 'day': 4, 'count7': 85742, 'count6': 84473},
+{'count12': 111296, 'hour': 18, 'count11': 140053, 'count10': 118536, 'count4': 129409, 'count9': 121051, 'count8': 96132, 'count1': 122712, 'count3': 163807, 'count2': 117369, 'count5': 149762, 'day': 4, 'count7': 107213, 'count6': 113990},
+{'count12': 122593, 'hour': 19, 'count11': 155819, 'count10': 132405, 'count4': 142346, 'count9': 131941, 'count8': 106458, 'count1': 134753, 'count3': 178242, 'count2': 127419, 'count5': 166881, 'day': 4, 'count7': 114634, 'count6': 130741},
+{'count12': 119460, 'hour': 20, 'count11': 151533, 'count10': 129700, 'count4': 138119, 'count9': 128361, 'count8': 104166, 'count1': 128243, 'count3': 170317, 'count2': 120722, 'count5': 159634, 'day': 4, 'count7': 103758, 'count6': 121698},
+{'count12': 118574, 'hour': 21, 'count11': 151688, 'count10': 127630, 'count4': 131970, 'count9': 125065, 'count8': 97730, 'count1': 122637, 'count3': 163719, 'count2': 115336, 'count5': 157386, 'day': 4, 'count7': 106987, 'count6': 120965},
+{'count12': 122117, 'hour': 22, 'count11': 156069, 'count10': 131097, 'count4': 136727, 'count9': 129556, 'count8': 101352, 'count1': 126935, 'count3': 169436, 'count2': 117685, 'count5': 162651, 'day': 4, 'count7': 110368, 'count6': 124163},
+{'count12': 118594, 'hour': 23, 'count11': 153847, 'count10': 131969, 'count4': 136961, 'count9': 128763, 'count8': 106457, 'count1': 123079, 'count3': 169384, 'count2': 115034, 'count5': 161394, 'day': 4, 'count7': 113459, 'count6': 123943},
+{'count12': 111758, 'hour': 0, 'count11': 142488, 'count10': 123150, 'count4': 126679, 'count9': 120817, 'count8': 103429, 'count1': 112789, 'count3': 159296, 'count2': 104737, 'count5': 122141, 'day': 5, 'count7': 107318, 'count6': 146672},
+{'count12': 98094, 'hour': 1, 'count11': 124015, 'count10': 106296, 'count4': 108006, 'count9': 105908, 'count8': 92073, 'count1': 94024, 'count3': 136293, 'count2': 88003, 'count5': 104249, 'day': 5, 'count7': 91850, 'count6': 128491},
+{'count12': 81865, 'hour': 2, 'count11': 103864, 'count10': 89264, 'count4': 88078, 'count9': 89027, 'count8': 83540, 'count1': 76788, 'count3': 111757, 'count2': 72788, 'count5': 83227, 'day': 5, 'count7': 74194, 'count6': 105744},
+{'count12': 60697, 'hour': 3, 'count11': 77651, 'count10': 66448, 'count4': 64292, 'count9': 66379, 'count8': 63297, 'count1': 56891, 'count3': 83711, 'count2': 54476, 'count5': 61545, 'day': 5, 'count7': 54308, 'count6': 78648},
+{'count12': 39443, 'hour': 4, 'count11': 50809, 'count10': 41267, 'count4': 40836, 'count9': 42808, 'count8': 41948, 'count1': 35735, 'count3': 54061, 'count2': 34617, 'count5': 40249, 'day': 5, 'count7': 36475, 'count6': 50368},
+{'count12': 19760, 'hour': 5, 'count11': 24841, 'count10': 20804, 'count4': 19764, 'count9': 20176, 'count8': 20931, 'count1': 17545, 'count3': 25794, 'count2': 16920, 'count5': 21667, 'day': 5, 'count7': 18708, 'count6': 25432},
+{'count12': 21021, 'hour': 6, 'count11': 26927, 'count10': 23317, 'count4': 22613, 'count9': 22211, 'count8': 23163, 'count1': 19157, 'count3': 27563, 'count2': 18471, 'count5': 23089, 'day': 5, 'count7': 20320, 'count6': 26937},
+{'count12': 29481, 'hour': 7, 'count11': 39254, 'count10': 35556, 'count4': 35347, 'count9': 31702, 'count8': 31121, 'count1': 28301, 'count3': 38132, 'count2': 25464, 'count5': 32654, 'day': 5, 'count7': 27053, 'count6': 41211},
+{'count12': 45862, 'hour': 8, 'count11': 59341, 'count10': 55244, 'count4': 53056, 'count9': 48966, 'count8': 42370, 'count1': 43328, 'count3': 59946, 'count2': 41680, 'count5': 50821, 'day': 5, 'count7': 38187, 'count6': 58946},
+{'count12': 65916, 'hour': 9, 'count11': 85435, 'count10': 73175, 'count4': 75916, 'count9': 67502, 'count8': 58918, 'count1': 63462, 'count3': 87695, 'count2': 61773, 'count5': 70539, 'day': 5, 'count7': 54008, 'count6': 82769},
+{'count12': 83527, 'hour': 10, 'count11': 103733, 'count10': 85157, 'count4': 89799, 'count9': 81945, 'count8': 70129, 'count1': 78374, 'count3': 106721, 'count2': 77502, 'count5': 84282, 'day': 5, 'count7': 66268, 'count6': 98359},
+{'count12': 96692, 'hour': 11, 'count11': 117899, 'count10': 96009, 'count4': 100593, 'count9': 90554, 'count8': 79323, 'count1': 89590, 'count3': 121521, 'count2': 90237, 'count5': 96324, 'day': 5, 'count7': 76063, 'count6': 109993},
+{'count12': 102583, 'hour': 12, 'count11': 128598, 'count10': 102131, 'count4': 107114, 'count9': 96479, 'count8': 83221, 'count1': 97190, 'count3': 132542, 'count2': 100362, 'count5': 102478, 'day': 5, 'count7': 82300, 'count6': 117119},
+{'count12': 104355, 'hour': 13, 'count11': 131796, 'count10': 103007, 'count4': 107740, 'count9': 99048, 'count8': 85967, 'count1': 100765, 'count3': 135499, 'count2': 103674, 'count5': 102929, 'day': 5, 'count7': 84616, 'count6': 120087},
+{'count12': 100049, 'hour': 14, 'count11': 127912, 'count10': 100116, 'count4': 103462, 'count9': 96499, 'count8': 84590, 'count1': 96753, 'count3': 133759, 'count2': 103743, 'count5': 101674, 'day': 5, 'count7': 81663, 'count6': 115525},
+{'count12': 96757, 'hour': 15, 'count11': 128242, 'count10': 99856, 'count4': 100188, 'count9': 96811, 'count8': 84927, 'count1': 98460, 'count3': 130692, 'count2': 104060, 'count5': 97665, 'day': 5, 'count7': 82813, 'count6': 113872},
+{'count12': 73659, 'hour': 16, 'count11': 105828, 'count10': 82211, 'count4': 84102, 'count9': 81396, 'count8': 80532, 'count1': 92316, 'count3': 112073, 'count2': 94352, 'count5': 82562, 'day': 5, 'count7': 76988, 'count6': 99768},
+{'count12': 83633, 'hour': 17, 'count11': 123034, 'count10': 98730, 'count4': 98344, 'count9': 96681, 'count8': 91585, 'count1': 103902, 'count3': 132000, 'count2': 106628, 'count5': 95427, 'day': 5, 'count7': 88965, 'count6': 115346},
+{'count12': 101733, 'hour': 18, 'count11': 149658, 'count10': 118796, 'count4': 122950, 'count9': 117445, 'count8': 100916, 'count1': 121784, 'count3': 161476, 'count2': 129754, 'count5': 112330, 'day': 5, 'count7': 98401, 'count6': 135896},
+{'count12': 103355, 'hour': 19, 'count11': 160567, 'count10': 127129, 'count4': 128328, 'count9': 124311, 'count8': 108188, 'count1': 130033, 'count3': 170849, 'count2': 137839, 'count5': 122408, 'day': 5, 'count7': 104087, 'count6': 144619},
+{'count12': 99010, 'hour': 20, 'count11': 147204, 'count10': 120620, 'count4': 124976, 'count9': 119172, 'count8': 100506, 'count1': 117331, 'count3': 160671, 'count2': 126531, 'count5': 113703, 'day': 5, 'count7': 90959, 'count6': 129287},
+{'count12': 100001, 'hour': 21, 'count11': 144765, 'count10': 119072, 'count4': 124544, 'count9': 117495, 'count8': 99258, 'count1': 113104, 'count3': 156226, 'count2': 123374, 'count5': 113548, 'day': 5, 'count7': 98696, 'count6': 134207},
+{'count12': 108010, 'hour': 22, 'count11': 155655, 'count10': 127570, 'count4': 134240, 'count9': 127465, 'count8': 107729, 'count1': 127216, 'count3': 167422, 'count2': 133545, 'count5': 121755, 'day': 5, 'count7': 103412, 'count6': 146374},
+{'count12': 111721, 'hour': 23, 'count11': 161158, 'count10': 132903, 'count4': 136674, 'count9': 129950, 'count8': 115738, 'count1': 134128, 'count3': 173080, 'count2': 138356, 'count5': 126813, 'day': 5, 'count7': 110152, 'count6': 158146},
+{'count12': 134852, 'hour': 0, 'count11': 129394, 'count10': 126753, 'count4': 129510, 'count9': 148560, 'count8': 81381, 'count1': 127486, 'count3': 162602, 'count2': 129894, 'count5': 120601, 'day': 6, 'count7': 108891, 'count6': 152139},
+{'count12': 120693, 'hour': 1, 'count11': 140092, 'count10': 114480, 'count4': 115553, 'count9': 133421, 'count8': 73464, 'count1': 113475, 'count3': 144654, 'count2': 113997, 'count5': 104962, 'day': 6, 'count7': 96846, 'count6': 135551},
+{'count12': 100812, 'hour': 2, 'count11': 96096, 'count10': 100550, 'count4': 101271, 'count9': 114907, 'count8': 63886, 'count1': 96970, 'count3': 97403, 'count2': 97695, 'count5': 88524, 'day': 6, 'count7': 81037, 'count6': 118292},
+{'count12': 79265, 'hour': 3, 'count11': 73799, 'count10': 78123, 'count4': 80061, 'count9': 88418, 'count8': 49619, 'count1': 74634, 'count3': 102552, 'count2': 77456, 'count5': 68371, 'day': 6, 'count7': 60703, 'count6': 90995},
+{'count12': 51713, 'hour': 4, 'count11': 46153, 'count10': 49763, 'count4': 50633, 'count9': 56552, 'count8': 32923, 'count1': 45695, 'count3': 67165, 'count2': 47368, 'count5': 43383, 'day': 6, 'count7': 42486, 'count6': 58516},
+{'count12': 24174, 'hour': 5, 'count11': 24265, 'count10': 22952, 'count4': 22133, 'count9': 25404, 'count8': 15267, 'count1': 19315, 'count3': 32028, 'count2': 20746, 'count5': 20358, 'day': 6, 'count7': 20456, 'count6': 27086},
+{'count12': 23125, 'hour': 6, 'count11': 21757, 'count10': 20549, 'count4': 20205, 'count9': 25298, 'count8': 13695, 'count1': 17407, 'count3': 27835, 'count2': 18985, 'count5': 18723, 'day': 6, 'count7': 17795, 'count6': 23317},
+{'count12': 28721, 'hour': 7, 'count11': 27077, 'count10': 27480, 'count4': 28174, 'count9': 30144, 'count8': 16787, 'count1': 23081, 'count3': 31407, 'count2': 23384, 'count5': 25317, 'day': 6, 'count7': 21591, 'count6': 30123},
+{'count12': 43284, 'hour': 8, 'count11': 39084, 'count10': 41173, 'count4': 39353, 'count9': 44293, 'count8': 23920, 'count1': 34558, 'count3': 45387, 'count2': 37282, 'count5': 38149, 'day': 6, 'count7': 29831, 'count6': 42869},
+{'count12': 66371, 'hour': 9, 'count11': 59262, 'count10': 59601, 'count4': 59196, 'count9': 64028, 'count8': 33916, 'count1': 49701, 'count3': 69395, 'count2': 55053, 'count5': 56254, 'day': 6, 'count7': 44591, 'count6': 64879},
+{'count12': 94435, 'hour': 10, 'count11': 82511, 'count10': 80381, 'count4': 81014, 'count9': 88920, 'count8': 44794, 'count1': 70468, 'count3': 98448, 'count2': 77115, 'count5': 77339, 'day': 6, 'count7': 60517, 'count6': 87159},
+{'count12': 112480, 'hour': 11, 'count11': 98856, 'count10': 92043, 'count4': 94564, 'count9': 104897, 'count8': 52434, 'count1': 84886, 'count3': 114958, 'count2': 91369, 'count5': 89866, 'day': 6, 'count7': 72558, 'count6': 100411},
+{'count12': 124513, 'hour': 12, 'count11': 104152, 'count10': 100174, 'count4': 102887, 'count9': 116556, 'count8': 56721, 'count1': 93947, 'count3': 127781, 'count2': 100303, 'count5': 96542, 'day': 6, 'count7': 82145, 'count6': 108748},
+{'count12': 125418, 'hour': 13, 'count11': 103679, 'count10': 99191, 'count4': 101996, 'count9': 115565, 'count8': 58028, 'count1': 94641, 'count3': 129337, 'count2': 101322, 'count5': 96832, 'day': 6, 'count7': 86116, 'count6': 109179},
+{'count12': 124679, 'hour': 14, 'count11': 102073, 'count10': 95575, 'count4': 101723, 'count9': 114167, 'count8': 59481, 'count1': 95855, 'count3': 129228, 'count2': 99715, 'count5': 95453, 'day': 6, 'count7': 86636, 'count6': 109681},
+{'count12': 116102, 'hour': 15, 'count11': 94492, 'count10': 89194, 'count4': 94444, 'count9': 110597, 'count8': 58427, 'count1': 92465, 'count3': 121394, 'count2': 98311, 'count5': 89455, 'day': 6, 'count7': 80407, 'count6': 103822},
+{'count12': 100272, 'hour': 16, 'count11': 82185, 'count10': 80085, 'count4': 83082, 'count9': 100816, 'count8': 54943, 'count1': 87658, 'count3': 110270, 'count2': 93162, 'count5': 79337, 'day': 6, 'count7': 77179, 'count6': 92362},
+{'count12': 107046, 'hour': 17, 'count11': 90700, 'count10': 90234, 'count4': 89931, 'count9': 110175, 'count8': 60927, 'count1': 91701, 'count3': 119466, 'count2': 103299, 'count5': 88437, 'day': 6, 'count7': 85007, 'count6': 103009},
+{'count12': 116317, 'hour': 18, 'count11': 102181, 'count10': 98344, 'count4': 101837, 'count9': 119098, 'count8': 64267, 'count1': 99089, 'count3': 130297, 'count2': 114079, 'count5': 98855, 'day': 6, 'count7': 92320, 'count6': 113230},
+{'count12': 111153, 'hour': 19, 'count11': 98475, 'count10': 96391, 'count4': 95758, 'count9': 119047, 'count8': 62467, 'count1': 86309, 'count3': 124068, 'count2': 95708, 'count5': 96382, 'day': 6, 'count7': 89353, 'count6': 110012},
+{'count12': 98421, 'hour': 20, 'count11': 89086, 'count10': 87844, 'count4': 88330, 'count9': 112753, 'count8': 58797, 'count1': 77070, 'count3': 114145, 'count2': 83127, 'count5': 90908, 'day': 6, 'count7': 77054, 'count6': 102097},
+{'count12': 93256, 'hour': 21, 'count11': 83690, 'count10': 81259, 'count4': 80739, 'count9': 102443, 'count8': 56477, 'count1': 73935, 'count3': 105506, 'count2': 81480, 'count5': 87645, 'day': 6, 'count7': 77281, 'count6': 101768},
+{'count12': 86486, 'hour': 22, 'count11': 73277, 'count10': 72230, 'count4': 74518, 'count9': 97286, 'count8': 52912, 'count1': 69173, 'count3': 95383, 'count2': 79521, 'count5': 82225, 'day': 6, 'count7': 71993, 'count6': 97546},
+{'count12': 71556, 'hour': 23, 'count11': 56622, 'count10': 58373, 'count4': 61183, 'count9': 81581, 'count8': 43736, 'count1': 56915, 'count3': 69832, 'count2': 72856, 'count5': 69897, 'day': 6, 'count7': 61541, 'count6': 86602}]
+
+
+taxi1chart.accessor(function(d) {return d.count1;})
+taxi2chart.accessor(function(d) {return d.count2;})
+taxi3chart.accessor(function(d) {return d.count3;})
+taxi4chart.accessor(function(d) {return d.count4;})
+taxi5chart.accessor(function(d) {return d.count5;})
+taxi6chart.accessor(function(d) {return d.count6;})
+taxi7chart.accessor(function(d) {return d.count7;})
+taxi8chart.accessor(function(d) {return d.count8;})
+taxi9chart.accessor(function(d) {return d.count9;})
+taxi10chart.accessor(function(d) {return d.count10;})
+taxi11chart.accessor(function(d) {return d.count11;})
+taxi12chart.accessor(function(d) {return d.count12;})
+
+console.log(alljson);
+
+d3.select('#taxi1')
+    .selectAll('svg')
+    .data([alljson])
+    .enter()
+    .append('svg')
+    .call(taxi1chart);
+
+d3.select('#taxi1')
+    .append('div')
+    .attr('id', 'taxi1info')
+    .style('font-size', '13px')
+    .style('font-style', 'italic')
+    .text('Hover over chart to see number of full stations')
+
+
+/* Add a mouseover event */
+d3.selectAll("#taxi1 path").on('mouseover', function() {
+  var d = d3.select(this).data()[0];
+    d3.select("#taxi1info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count1 + ' rides')
+    d3.select("#taxi2info").text("Day: " + d.day+ " Hour: "+ d.hour + ' - ' + d.count2 + ' rides')
+    d3.select("#taxi3info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count3 + ' rides')
+    d3.select("#taxi4info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count4 + ' rides')
+    d3.select("#taxi5info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count5 + ' rides')
+    d3.select("#taxi6info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count6 + ' rides')
+    d3.select("#taxi7info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count7 + ' rides')
+    d3.select("#taxi8info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count8 + ' rides')
+    d3.select("#taxi9info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count9 + ' rides')
+    d3.select("#taxi10info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count10 + ' rides')
+    d3.select("#taxi11info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count11 + ' rides')
+    d3.select("#taxi12info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count12 + ' rides');
+     
+});
+d3.selectAll("#taxi1 svg").on('mouseout', function() {
+    d3.select("#taxi1info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi2info").text('Hover over chart to see number of empty stations')
+    d3.select("#taxi3info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi4info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi5info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi6info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi7info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi8info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi9info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi10info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi11info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi12info").text('Hover over chart to see number of full stations');
+});
+
+
+
+
+
+
+
+
+d3.select('#taxi2')
+    .selectAll('svg')
+    .data([alljson])
+    .enter()
+    .append('svg')
+    .call(taxi2chart);
+
+d3.select('#taxi2')
+    .append('div')
+    .attr('id', 'taxi2info')
+    .style('font-size', '13px')
+    .style('font-style', 'italic')
+    .text('Hover over chart to see number of full stations')
+
+
+/* Add a mouseover event */
+d3.selectAll("#taxi2 path").on('mouseover', function() {
+  var d = d3.select(this).data()[0];
+    d3.select("#taxi1info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count1 + ' rides')
+    d3.select("#taxi2info").text("Day: " + d.day+ " Hour: "+ d.hour + ' - ' + d.count2 + ' rides')
+    d3.select("#taxi3info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count3 + ' rides')
+    d3.select("#taxi4info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count4 + ' rides')
+    d3.select("#taxi5info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count5 + ' rides')
+    d3.select("#taxi6info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count6 + ' rides')
+    d3.select("#taxi7info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count7 + ' rides')
+    d3.select("#taxi8info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count8 + ' rides')
+    d3.select("#taxi9info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count9 + ' rides')
+    d3.select("#taxi10info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count10 + ' rides')
+    d3.select("#taxi11info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count11 + ' rides')
+    d3.select("#taxi12info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count12 + ' rides');
+     
+});
+d3.selectAll("#taxi2 svg").on('mouseout', function() {
+    d3.select("#taxi1info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi2info").text('Hover over chart to see number of empty stations')
+    d3.select("#taxi3info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi4info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi5info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi6info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi7info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi8info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi9info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi10info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi11info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi12info").text('Hover over chart to see number of full stations');
+});
+
+
+
+
+d3.select('#taxi3')
+    .selectAll('svg')
+    .data([alljson])
+    .enter()
+    .append('svg')
+    .call(taxi3chart);
+
+d3.select('#taxi3')
+    .append('div')
+    .attr('id', 'taxi3info')
+    .style('font-size', '13px')
+    .style('font-style', 'italic')
+    .text('Hover over chart to see number of full stations')
+
+
+/* Add a mouseover event */
+d3.selectAll("#taxi3 path").on('mouseover', function() {
+  var d = d3.select(this).data()[0];
+    d3.select("#taxi1info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count1 + ' rides')
+    d3.select("#taxi2info").text("Day: " + d.day+ " Hour: "+ d.hour + ' - ' + d.count2 + ' rides')
+    d3.select("#taxi3info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count3 + ' rides')
+    d3.select("#taxi4info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count4 + ' rides')
+    d3.select("#taxi5info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count5 + ' rides')
+    d3.select("#taxi6info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count6 + ' rides')
+    d3.select("#taxi7info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count7 + ' rides')
+    d3.select("#taxi8info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count8 + ' rides')
+    d3.select("#taxi9info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count9 + ' rides')
+    d3.select("#taxi10info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count10 + ' rides')
+    d3.select("#taxi11info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count11 + ' rides')
+    d3.select("#taxi12info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count12 + ' rides');
+     
+});
+d3.selectAll("#taxi3 svg").on('mouseout', function() {
+    d3.select("#taxi1info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi2info").text('Hover over chart to see number of empty stations')
+    d3.select("#taxi3info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi4info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi5info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi6info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi7info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi8info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi9info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi10info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi11info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi12info").text('Hover over chart to see number of full stations');
+});
+
+
+
+
+
+
+
+
+
+d3.select('#taxi4')
+    .selectAll('svg')
+    .data([alljson])
+    .enter()
+    .append('svg')
+    .call(taxi4chart);
+
+d3.select('#taxi4')
+    .append('div')
+    .attr('id', 'taxi4info')
+    .style('font-size', '13px')
+    .style('font-style', 'italic')
+    .text('Hover over chart to see number of full stations')
+
+
+/* Add a mouseover event */
+d3.selectAll("#taxi4 path").on('mouseover', function() {
+  var d = d3.select(this).data()[0];
+    d3.select("#taxi1info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count1 + ' rides')
+    d3.select("#taxi2info").text("Day: " + d.day+ " Hour: "+ d.hour + ' - ' + d.count2 + ' rides')
+    d3.select("#taxi3info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count3 + ' rides')
+    d3.select("#taxi4info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count4 + ' rides')
+    d3.select("#taxi5info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count5 + ' rides')
+    d3.select("#taxi6info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count6 + ' rides')
+    d3.select("#taxi7info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count7 + ' rides')
+    d3.select("#taxi8info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count8 + ' rides')
+    d3.select("#taxi9info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count9 + ' rides')
+    d3.select("#taxi10info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count10 + ' rides')
+    d3.select("#taxi11info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count11 + ' rides')
+    d3.select("#taxi12info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count12 + ' rides');
+     
+});
+d3.selectAll("#taxi4 svg").on('mouseout', function() {
+    d3.select("#taxi1info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi2info").text('Hover over chart to see number of empty stations')
+    d3.select("#taxi3info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi4info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi5info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi6info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi7info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi8info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi9info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi10info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi11info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi12info").text('Hover over chart to see number of full stations');
+});
+
+
+
+
+
+
+
+
+
+
+
+d3.select('#taxi5')
+    .selectAll('svg')
+    .data([alljson])
+    .enter()
+    .append('svg')
+    .call(taxi5chart);
+
+d3.select('#taxi5')
+    .append('div')
+    .attr('id', 'taxi5info')
+    .style('font-size', '13px')
+    .style('font-style', 'italic')
+    .text('Hover over chart to see number of full stations')
+
+
+/* Add a mouseover event */
+d3.selectAll("#taxi5 path").on('mouseover', function() {
+  var d = d3.select(this).data()[0];
+    d3.select("#taxi1info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count1 + ' rides')
+    d3.select("#taxi2info").text("Day: " + d.day+ " Hour: "+ d.hour + ' - ' + d.count2 + ' rides')
+    d3.select("#taxi3info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count3 + ' rides')
+    d3.select("#taxi4info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count4 + ' rides')
+    d3.select("#taxi5info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count5 + ' rides')
+    d3.select("#taxi6info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count6 + ' rides')
+    d3.select("#taxi7info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count7 + ' rides')
+    d3.select("#taxi8info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count8 + ' rides')
+    d3.select("#taxi9info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count9 + ' rides')
+    d3.select("#taxi10info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count10 + ' rides')
+    d3.select("#taxi11info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count11 + ' rides')
+    d3.select("#taxi12info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count12 + ' rides');
+     
+});
+d3.selectAll("#taxi5 svg").on('mouseout', function() {
+    d3.select("#taxi1info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi2info").text('Hover over chart to see number of empty stations')
+    d3.select("#taxi3info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi4info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi5info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi6info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi7info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi8info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi9info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi10info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi11info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi12info").text('Hover over chart to see number of full stations');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+d3.select('#taxi6')
+    .selectAll('svg')
+    .data([alljson])
+    .enter()
+    .append('svg')
+    .call(taxi6chart);
+
+d3.select('#taxi6')
+    .append('div')
+    .attr('id', 'taxi6info')
+    .style('font-size', '13px')
+    .style('font-style', 'italic')
+    .text('Hover over chart to see number of full stations')
+
+
+/* Add a mouseover event */
+d3.selectAll("#taxi6 path").on('mouseover', function() {
+  var d = d3.select(this).data()[0];
+    d3.select("#taxi1info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count1 + ' rides')
+    d3.select("#taxi2info").text("Day: " + d.day+ " Hour: "+ d.hour + ' - ' + d.count2 + ' rides')
+    d3.select("#taxi3info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count3 + ' rides')
+    d3.select("#taxi4info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count4 + ' rides')
+    d3.select("#taxi5info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count5 + ' rides')
+    d3.select("#taxi6info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count6 + ' rides')
+    d3.select("#taxi7info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count7 + ' rides')
+    d3.select("#taxi8info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count8 + ' rides')
+    d3.select("#taxi9info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count9 + ' rides')
+    d3.select("#taxi10info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count10 + ' rides')
+    d3.select("#taxi11info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count11 + ' rides')
+    d3.select("#taxi12info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count12 + ' rides');
+     
+});
+d3.selectAll("#taxi6 svg").on('mouseout', function() {
+    d3.select("#taxi1info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi2info").text('Hover over chart to see number of empty stations')
+    d3.select("#taxi3info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi4info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi5info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi6info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi7info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi8info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi9info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi10info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi11info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi12info").text('Hover over chart to see number of full stations');
+});
+
+
+
+
+
+
+
+
+
+
+d3.select('#taxi7')
+    .selectAll('svg')
+    .data([alljson])
+    .enter()
+    .append('svg')
+    .call(taxi7chart);
+
+d3.select('#taxi7')
+    .append('div')
+    .attr('id', 'taxi7info')
+    .style('font-size', '13px')
+    .style('font-style', 'italic')
+    .text('Hover over chart to see number of full stations')
+
+
+/* Add a mouseover event */
+d3.selectAll("#taxi7 path").on('mouseover', function() {
+  var d = d3.select(this).data()[0];
+    d3.select("#taxi1info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count1 + ' rides')
+    d3.select("#taxi2info").text("Day: " + d.day+ " Hour: "+ d.hour + ' - ' + d.count2 + ' rides')
+    d3.select("#taxi3info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count3 + ' rides')
+    d3.select("#taxi4info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count4 + ' rides')
+    d3.select("#taxi5info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count5 + ' rides')
+    d3.select("#taxi6info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count6 + ' rides')
+    d3.select("#taxi7info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count7 + ' rides')
+    d3.select("#taxi8info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count8 + ' rides')
+    d3.select("#taxi9info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count9 + ' rides')
+    d3.select("#taxi10info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count10 + ' rides')
+    d3.select("#taxi11info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count11 + ' rides')
+    d3.select("#taxi12info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count12 + ' rides');
+     
+});
+d3.selectAll("#taxi7 svg").on('mouseout', function() {
+    d3.select("#taxi1info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi2info").text('Hover over chart to see number of empty stations')
+    d3.select("#taxi3info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi4info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi5info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi6info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi7info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi8info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi9info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi10info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi11info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi12info").text('Hover over chart to see number of full stations');
+});
+
+
+
+
+
+
+
+
+d3.select('#taxi8')
+    .selectAll('svg')
+    .data([alljson])
+    .enter()
+    .append('svg')
+    .call(taxi8chart);
+
+d3.select('#taxi8')
+    .append('div')
+    .attr('id', 'taxi8info')
+    .style('font-size', '13px')
+    .style('font-style', 'italic')
+    .text('Hover over chart to see number of full stations')
+
+
+/* Add a mouseover event */
+d3.selectAll("#taxi8 path").on('mouseover', function() {
+  var d = d3.select(this).data()[0];
+    d3.select("#taxi1info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count1 + ' rides')
+    d3.select("#taxi2info").text("Day: " + d.day+ " Hour: "+ d.hour + ' - ' + d.count2 + ' rides')
+    d3.select("#taxi3info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count3 + ' rides')
+    d3.select("#taxi4info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count4 + ' rides')
+    d3.select("#taxi5info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count5 + ' rides')
+    d3.select("#taxi6info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count6 + ' rides')
+    d3.select("#taxi7info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count7 + ' rides')
+    d3.select("#taxi8info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count8 + ' rides')
+    d3.select("#taxi9info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count9 + ' rides')
+    d3.select("#taxi10info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count10 + ' rides')
+    d3.select("#taxi11info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count11 + ' rides')
+    d3.select("#taxi12info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count12 + ' rides');
+     
+});
+d3.selectAll("#taxi8 svg").on('mouseout', function() {
+    d3.select("#taxi1info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi2info").text('Hover over chart to see number of empty stations')
+    d3.select("#taxi3info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi4info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi5info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi6info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi7info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi8info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi9info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi10info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi11info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi12info").text('Hover over chart to see number of full stations');
+});
+
+
+
+
+
+
+
+d3.select('#taxi9')
+    .selectAll('svg')
+    .data([alljson])
+    .enter()
+    .append('svg')
+    .call(taxi9chart);
+
+d3.select('#taxi9')
+    .append('div')
+    .attr('id', 'taxi9info')
+    .style('font-size', '13px')
+    .style('font-style', 'italic')
+    .text('Hover over chart to see number of full stations')
+
+
+/* Add a mouseover event */
+d3.selectAll("#taxi9 path").on('mouseover', function() {
+  var d = d3.select(this).data()[0];
+    d3.select("#taxi1info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count1 + ' rides')
+    d3.select("#taxi2info").text("Day: " + d.day+ " Hour: "+ d.hour + ' - ' + d.count2 + ' rides')
+    d3.select("#taxi3info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count3 + ' rides')
+    d3.select("#taxi4info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count4 + ' rides')
+    d3.select("#taxi5info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count5 + ' rides')
+    d3.select("#taxi6info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count6 + ' rides')
+    d3.select("#taxi7info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count7 + ' rides')
+    d3.select("#taxi8info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count8 + ' rides')
+    d3.select("#taxi9info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count9 + ' rides')
+    d3.select("#taxi10info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count10 + ' rides')
+    d3.select("#taxi11info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count11 + ' rides')
+    d3.select("#taxi12info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count12 + ' rides');
+     
+});
+d3.selectAll("#taxi9 svg").on('mouseout', function() {
+    d3.select("#taxi1info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi2info").text('Hover over chart to see number of empty stations')
+    d3.select("#taxi3info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi4info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi5info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi6info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi7info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi8info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi9info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi10info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi11info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi12info").text('Hover over chart to see number of full stations');
+});
+
+
+
+
+
+
+d3.select('#taxi10')
+    .selectAll('svg')
+    .data([alljson])
+    .enter()
+    .append('svg')
+    .call(taxi10chart);
+
+d3.select('#taxi10')
+    .append('div')
+    .attr('id', 'taxi10info')
+    .style('font-size', '13px')
+    .style('font-style', 'italic')
+    .text('Hover over chart to see number of full stations')
+
+
+/* Add a mouseover event */
+d3.selectAll("#taxi10 path").on('mouseover', function() {
+  var d = d3.select(this).data()[0];
+    d3.select("#taxi1info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count1 + ' rides')
+    d3.select("#taxi2info").text("Day: " + d.day+ " Hour: "+ d.hour + ' - ' + d.count2 + ' rides')
+    d3.select("#taxi3info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count3 + ' rides')
+    d3.select("#taxi4info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count4 + ' rides')
+    d3.select("#taxi5info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count5 + ' rides')
+    d3.select("#taxi6info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count6 + ' rides')
+    d3.select("#taxi7info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count7 + ' rides')
+    d3.select("#taxi8info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count8 + ' rides')
+    d3.select("#taxi9info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count9 + ' rides')
+    d3.select("#taxi10info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count10 + ' rides')
+    d3.select("#taxi11info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count11 + ' rides')
+    d3.select("#taxi12info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count12 + ' rides');
+     
+});
+d3.selectAll("#taxi10 svg").on('mouseout', function() {
+    d3.select("#taxi1info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi2info").text('Hover over chart to see number of empty stations')
+    d3.select("#taxi3info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi4info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi5info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi6info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi7info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi8info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi9info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi10info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi11info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi12info").text('Hover over chart to see number of full stations');
+});
+
+
+
+
+
+
+
+
+
+d3.select('#taxi11')
+    .selectAll('svg')
+    .data([alljson])
+    .enter()
+    .append('svg')
+    .call(taxi11chart);
+
+d3.select('#taxi11')
+    .append('div')
+    .attr('id', 'taxi11info')
+    .style('font-size', '13px')
+    .style('font-style', 'italic')
+    .text('Hover over chart to see number of full stations')
+
+
+/* Add a mouseover event */
+d3.selectAll("#taxi11 path").on('mouseover', function() {
+  var d = d3.select(this).data()[0];
+    d3.select("#taxi1info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count1 + ' rides')
+    d3.select("#taxi2info").text("Day: " + d.day+ " Hour: "+ d.hour + ' - ' + d.count2 + ' rides')
+    d3.select("#taxi3info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count3 + ' rides')
+    d3.select("#taxi4info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count4 + ' rides')
+    d3.select("#taxi5info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count5 + ' rides')
+    d3.select("#taxi6info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count6 + ' rides')
+    d3.select("#taxi7info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count7 + ' rides')
+    d3.select("#taxi8info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count8 + ' rides')
+    d3.select("#taxi9info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count9 + ' rides')
+    d3.select("#taxi10info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count10 + ' rides')
+    d3.select("#taxi11info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count11 + ' rides')
+    d3.select("#taxi12info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count12 + ' rides');
+     
+});
+d3.selectAll("#taxi11 svg").on('mouseout', function() {
+    d3.select("#taxi1info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi2info").text('Hover over chart to see number of empty stations')
+    d3.select("#taxi3info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi4info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi5info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi6info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi7info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi8info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi9info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi10info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi11info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi12info").text('Hover over chart to see number of full stations');
+});
+
+
+
+
+
+
+
+
+d3.select('#taxi12')
+    .selectAll('svg')
+    .data([alljson])
+    .enter()
+    .append('svg')
+    .call(taxi12chart);
+
+d3.select('#taxi12')
+    .append('div')
+    .attr('id', 'taxi12info')
+    .style('font-size', '13px')
+    .style('font-style', 'italic')
+    .text('Hover over chart to see number of full stations')
+
+
+/* Add a mouseover event */
+d3.selectAll("#taxi12 path").on('mouseover', function() {
+  var d = d3.select(this).data()[0];
+    d3.select("#taxi1info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count1 + ' rides')
+    d3.select("#taxi2info").text("Day: " + d.day+ " Hour: "+ d.hour + ' - ' + d.count2 + ' rides')
+    d3.select("#taxi3info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count3 + ' rides')
+    d3.select("#taxi4info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count4 + ' rides')
+    d3.select("#taxi5info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count5 + ' rides')
+    d3.select("#taxi6info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count6 + ' rides')
+    d3.select("#taxi7info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count7 + ' rides')
+    d3.select("#taxi8info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count8 + ' rides')
+    d3.select("#taxi9info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count9 + ' rides')
+    d3.select("#taxi10info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count10 + ' rides')
+    d3.select("#taxi11info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count11 + ' rides')
+    d3.select("#taxi12info").text("Day: " + d.day + " Hour: "+ d.hour + ' - ' + d.count12 + ' rides');
+     
+});
+d3.selectAll("#taxi12 svg").on('mouseout', function() {
+    d3.select("#taxi1info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi2info").text('Hover over chart to see number of empty stations')
+    d3.select("#taxi3info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi4info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi5info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi6info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi7info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi8info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi9info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi10info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi11info").text('Hover over chart to see number of full stations')
+    d3.select("#taxi12info").text('Hover over chart to see number of full stations');
+});
+
+
+
+</script>
+    
+    
+    
+    
+    <script src="../foundation/js/vendor/jquery.js"></script>
+    <script src="../foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      
+
+      
+      
+    </script>
+  </body>
+</html>
